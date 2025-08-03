@@ -20,7 +20,7 @@ export default function Autocomplete() {
 
       try {
         setIsLoading(true);
-        const res = await fetch(`https://suggestrix-backend.up.railway.app/suggestion?word=${searchQuery}`);
+        const res = await fetch(`https://suggestrix.onrender.com/suggestion?word=${searchQuery}`);
         const data = await res.json();
         setType(data.type);
         setSuggestions(data.suggestions);
