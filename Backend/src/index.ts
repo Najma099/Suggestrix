@@ -32,7 +32,7 @@ const suggestionHandler: RequestHandler = (req, res) => {
 
   if (word.trim() === '') {
     const top = trie.getTopSuggestions('');
-    res.json({ type: 'autocomplete', suggestions: top });
+    res.json({ type: 'autosuggestion', suggestions: top });
     return;
   }
 
@@ -41,7 +41,7 @@ const suggestionHandler: RequestHandler = (req, res) => {
       trie.searchUpdate(word); 
     }
     const suggestions = trie.getTopSuggestions(word);
-    res.json({ type: 'autocomplete', suggestions });
+    res.json({ type: 'autosuggestion', suggestions });
     return;
   } else {
     const corrections = trie.getCorrect(word, maxDistance);
